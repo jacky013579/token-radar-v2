@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied launch value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <h1>TOKEN RADAR</h1>
+      <p class="tagline">Which pre-token protocol is worth farming next — and what to do about it.</p>
+    </div>
+    <div class="masthead-meta" id="masthead-meta">Snapshot 14 Nov 2026</div>
+  </div>
+</header>
+
+<main>
+  <section class="stats" id="stats" aria-label="Board statistics"></section>
+
+  <section class="model-card">
+    <h2>How the radar works</h2>
+    <p id="model-text"></p>
+    <p class="model-note">The board says a protocol <em>records no token</em>, never that it has none: the snapshot is a record, not proof. A protocol whose token already trades is set aside and used only to fit the model. Implied value is this entry's own claim about what a launch would be worth if the protocol's record stayed as it is — not a prediction that a token will launch, or when.</p>
+  </section>
+
+  <section class="controls">
+    <label class="control">Search
+      <input id="q" type="search" placeholder="Name or slug…" autocomplete="off">
+    </label>
+    <label class="control">Category
+      <select id="cat"><option value="">All categories</option></select>
+    </label>
+    <label class="control">Sort by
+      <select id="sort">
+        <option value="rank">Implied value (rank)</option>
+        <option value="tvl">TVL, high to low</option>
+        <option value="growth">7-day growth, high to low</option>
+        <option value="age">Age, oldest first</option>
+        <option value="name">Name, A to Z</option>
+      </select>
+    </label>
+    <label class="control check"><input id="watch" type="checkbox"> Watchlist only</label>
+    <span class="count" id="count"></span>
+  </section>
+
+  <section class="board-wrap">
+    <table class="board" id="board">
+      <thead>
+        <tr>
+          <th class="num">#</th>
+          <th>Protocol</th>
+          <th>Category</th>
+          <th class="num">Chains</th>
+          <th class="num">TVL</th>
+          <th class="num">7d</th>
+          <th class="num">Age</th>
+          <th class="num">Implied value</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="hint">Click a row for the protocol's detail view and farm plan.</p>
+  </section>
+
+  <section class="detail" id="detail" hidden>
+    <div class="detail-head">
+      <div>
+        <h2 id="d-name"></h2>
+        <p class="d-sub" id="d-sub"></p>
+      </div>
+      <div class="d-value"><span id="d-value"></span><label>implied launch value</label></div>
+    </div>
+    <div class="d-grid" id="d-grid"></div>
+    <div class="d-model" id="d-model"></div>
+    <h3>Farm plan</h3>
+    <ol class="steps" id="d-steps"></ol>
+    <p class="d-note">Costs are gas and fees on the protocol's chain, at the time of writing; check the live rates before you move funds. Never connect your wallet from a link in a message — use the protocol's own site.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Token Radar v2 · Data: DefiLlama snapshot of 14 Nov 2026 (758 protocols, $5M+ TVL) · Implied values are the entry's own model output, not investment advice.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
